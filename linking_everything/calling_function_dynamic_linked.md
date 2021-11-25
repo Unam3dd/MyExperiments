@@ -4,3 +4,17 @@
 
 #### when a program is dynamically linked it is impossible to know the addresses of the functions in advance because they are resolved at runtime, this is simple to understand because the addressing of a dynamically linked binary is relative the advantage of having a dynamically linked binary is that it is much lighter than its static version because the functions and other symbols are not directly written in the code, instead the dynamically linked binary will use an interpreter as well as several address resolution procedures to resolve the symbols of the program, these procedures are also called the GOT and the PLT I don't go into the details of its functioning because there is a post based on it.
 
+#### if we take the following program
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("hello\n");
+    puts("world");   
+    return (0);
+}
+```
+
+#### here we can see that the following program calls two functions, "printf" and "puts" its two functions allow to write on the file descriptor 1 also commonly called STDOUT which represents the output of the program, in short the program will display Hello a return to the line then our last word World
